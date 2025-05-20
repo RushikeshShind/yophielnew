@@ -1,7 +1,6 @@
-import Plyr from 'plyr-react';
-
 const Banner5 = () => {
-  return <section className="wrapper bg-soft-primary">
+  return (
+    <section className="wrapper bg-soft-primary">
       <div className="container py-14 py-md-16">
         <div className="row">
           <div className="col-xl-9 col-xxl-7 mx-auto text-center">
@@ -14,20 +13,20 @@ const Banner5 = () => {
 
         <div className="row text-center">
           <div className="col-xl-9 mx-auto">
-            <Plyr options={{
-            loadSprite: true,
-            clickToPlay: true
-          }} source={{
-            type: 'video',
-            sources: [{
-              src: '94837904',
-              provider: 'vimeo'
-            }]
-          }} />
+            <iframe
+              width="100%"
+              height="400"
+              src="https://player.vimeo.com/video/94837904"
+              title="Vimeo video player"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 
 export default Banner5;

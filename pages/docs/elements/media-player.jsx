@@ -1,48 +1,47 @@
-import Plyr from 'plyr-react';
 import DocLayout from 'components/layouts/DocLayout';
-import CodeHighlight from 'components/reuseable/CodeHighlight'; // -------- markups -------- //
+import CodeHighlight from 'components/reuseable/CodeHighlight';
 
-import { htmlMarkup, vimeoMarkup, youtubeMarkup, embededMarkup } from 'markups/elements/media-player'; // -------- data -------- //
+// -------- markups -------- //
+import { htmlMarkup, vimeoMarkup, youtubeMarkup, embededMarkup } from 'markups/elements/media-player';
 
-const quickAccess = [{
-  title: 'HTML5 Video - plyr',
-  url: 'snippet-1'
-}, {
-  title: 'Vimeo - plyr',
-  url: 'snippet-2'
-}, {
-  title: 'YouTube - plyr',
-  url: 'snippet-3'
-}, {
-  title: 'Embed',
-  url: 'snippet-4'
-}];
+// -------- data -------- //
+const quickAccess = [
+  { title: 'HTML5 Video', url: 'snippet-1' },
+  { title: 'Vimeo', url: 'snippet-2' },
+  { title: 'YouTube', url: 'snippet-3' },
+  { title: 'Embed', url: 'snippet-4' },
+];
 
 const MediaPlayer = () => {
-  return <DocLayout pageTitle="Media Player" quickAccssLinks={quickAccess} descriptionClass="lead px-xxl-10" headingColClass="col-md-9 col-lg-7 col-xl-7 mx-auto" description={<>
-          Examples on how to add videos with the included responsive media player. For further instructions on the
-          plugin please visit{' '}
-          <a href="https://github.com/chintan9/plyr-react" target="_blank" className="hover more" rel="noreferrer">
-            Plyr docs
-          </a>
-        </>}>
-      {
-      /* ========== section 1 ========== */
-    }
+  return (
+    <DocLayout
+      pageTitle="Media Player"
+      quickAccssLinks={quickAccess}
+      descriptionClass="lead px-xxl-10"
+      headingColClass="col-md-9 col-lg-7 col-xl-7 mx-auto"
+      description={
+        <>
+          Examples on how to add videos with responsive media players using native HTML elements or iframes. For
+          further instructions on embedding videos, refer to{' '}
+          <a href="https://www.youtube.com/help" target="_blank" className="hover more" rel="noreferrer">
+            YouTube Help
+          </a>{' '}
+          or{' '}
+          <a href="https://vimeo.com/help" target="_blank" className="hover more" rel="noreferrer">
+            Vimeo Help
+          </a>.
+        </>
+      }
+    >
+      {/* ========== section 1 ========== */}
       <section id="snippet-1" className="wrapper pt-16">
-        <h2 className="mb-5">HTML5 Video - plyr</h2>
+        <h2 className="mb-5">HTML5 Video</h2>
         <div className="card">
           <div className="card-body">
-            <Plyr options={{
-            loadSprite: true,
-            clickToPlay: true
-          }} source={{
-            type: 'video',
-            sources: [{
-              src: '/media/movie.mp4',
-              provider: 'html5'
-            }]
-          }} />
+            <video controls width="100%" height="auto">
+              <source src="/media/movie.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
 
           <div className="card-footer position-relative">
@@ -61,23 +60,20 @@ const MediaPlayer = () => {
         </div>
       </section>
 
-      {
-      /* ========== section 2 ========== */
-    }
+      {/* ========== section 2 ========== */}
       <section id="snippet-2" className="wrapper pt-16">
-        <h2 className="mb-5">Vimeo - plyr</h2>
+        <h2 className="mb-5">Vimeo</h2>
         <div className="card">
           <div className="card-body">
-            <Plyr options={{
-            loadSprite: true,
-            clickToPlay: true
-          }} source={{
-            type: 'video',
-            sources: [{
-              src: '15801179',
-              provider: 'vimeo'
-            }]
-          }} />
+            <iframe
+              width="100%"
+              height="400"
+              src="https://player.vimeo.com/video/15801179"
+              title="Vimeo video player"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
 
           <div className="card-footer position-relative">
@@ -96,23 +92,20 @@ const MediaPlayer = () => {
         </div>
       </section>
 
-      {
-      /* ========== section 3 ========== */
-    }
-      <section id="snippet-3" className="wrapper pt-16">
-        <h2 className="mb-5">YouTube - plyr</h2>
+      {/* ========== section 3 ========== */}
+      <section id="snippet-3" className="wrapper ptМАТЧ16">
+        <h2 className="mb-5">YouTube</h2>
         <div className="card">
           <div className="card-body">
-            <Plyr options={{
-            loadSprite: true,
-            clickToPlay: true
-          }} source={{
-            type: 'video',
-            sources: [{
-              src: 'j_Y2Gwaj7Gs',
-              provider: 'youtube'
-            }]
-          }} />
+            <iframe
+              width="100%"
+              height="400"
+              src="https://www.youtube.com/embed/j_Y2Gwaj7Gs"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
 
           <div className="card-footer position-relative">
@@ -131,15 +124,18 @@ const MediaPlayer = () => {
         </div>
       </section>
 
-      {
-      /* ========== section 4 ========== */
-    }
+      {/* ========== section 4 ========== */}
       <section id="snippet-4" className="wrapper py-16">
         <h2 className="mb-5">Responsive Embed</h2>
         <div className="card">
           <div className="card-body">
             <div className="ratio ratio-16x9">
-              <iframe className="rounded" src="https://www.youtube.com/embed/j_Y2Gwaj7Gs?rel=0" title="YouTube video" allowFullScreen />
+              <iframe
+                className="rounded"
+                src="https://www.youtube.com/embed/j_Y2Gwaj7Gs?rel=0"
+                title="YouTube video"
+                allowFullScreen
+              />
             </div>
           </div>
 
@@ -158,7 +154,8 @@ const MediaPlayer = () => {
           </div>
         </div>
       </section>
-    </DocLayout>;
+    </DocLayout>
+  );
 };
 
 export default MediaPlayer;
