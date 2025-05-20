@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import dynamic from 'next/dynamic';
+
 // -------- custom component -------- //
 import { Team3 } from 'components/blocks/team';
 import { About6 } from 'components/blocks/about';
@@ -11,13 +12,12 @@ import { Contact7 } from 'components/blocks/contact';
 import FigureImage from 'components/reuseable/FigureImage';
 import NextLink from 'components/reuseable/links/NextLink';
 
-// Dynamically import Testimonial5 with SSR disabled
+// Dynamically import Testimonial5 and VideoPlayer with SSR disabled
 const Testimonial5 = dynamic(() => import('components/blocks/testimonial'), {
   ssr: false,
 });
 
-// Dynamically import VideoPlayer with SSR disabled
-const VideoPlayer = dynamic(() => import('components/VideoPlayer'), {
+const VideoPlayer = dynamic(() => import('components/reuseable/VideoPlayer'), {
   ssr: false,
 });
 
@@ -62,11 +62,8 @@ const About = () => {
             {/* ========== about section ========== */}
             <About6 />
 
-            {/* ========== video player section ========== */}
-            <div className="my-10">
-              <h2 className="text-center mb-6">Watch Our Intro</h2>
-              <VideoPlayer />
-            </div>
+            {/* ========== video section ========== */}
+            <VideoPlayer />
 
             {/* ========== process section ========== */}
             <Process7 />
