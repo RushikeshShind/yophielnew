@@ -13,7 +13,12 @@ import NextLink from 'components/reuseable/links/NextLink';
 
 // Dynamically import Testimonial5 with SSR disabled
 const Testimonial5 = dynamic(() => import('components/blocks/testimonial'), {
-  ssr: false, // Disable server-side rendering
+  ssr: false,
+});
+
+// Dynamically import VideoPlayer with SSR disabled
+const VideoPlayer = dynamic(() => import('components/VideoPlayer'), {
+  ssr: false,
 });
 
 const About = () => {
@@ -56,6 +61,12 @@ const About = () => {
           <div className="container py-14 py-md-16">
             {/* ========== about section ========== */}
             <About6 />
+
+            {/* ========== video player section ========== */}
+            <div className="my-10">
+              <h2 className="text-center mb-6">Watch Our Intro</h2>
+              <VideoPlayer />
+            </div>
 
             {/* ========== process section ========== */}
             <Process7 />
