@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import dynamic from 'next/dynamic';
-
 // -------- custom component -------- //
 import { Team3 } from 'components/blocks/team';
 import { About6 } from 'components/blocks/about';
